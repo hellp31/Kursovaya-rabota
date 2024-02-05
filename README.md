@@ -14,4 +14,5 @@
 1.2.2 Практическая часть: БД (установка и запуск, структура (таблицы с данными)), сайт (html, css, js), интеграция, публикация, анализ (тестирование) <br>
 1.3. Заключение: копируется введение в прошедшем времени<br>
 2.Как это должно быть оформлено (ГОСТ)</i></b><br>
-https://docs.google.com/document/d/16-SwXsYINpeC2BXGxcsNrwQxgJLfdfdPb5blKUNTHG0/edit?usp=sharing
+https://docs.google.com/document/d/16-SwXsYINpeC2BXGxcsNrwQxgJLfdfdPb5blKUNTHG0/edit?usp=sharing<br>
+https://mogu.so/inviteLink?inviteBoardId=3xLxhR36CfGJ0Sf24UrSpi&inviteCode=cI6daCZajDMFFpQfK0t1r - доска<br>
