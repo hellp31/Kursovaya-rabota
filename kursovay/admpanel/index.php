@@ -4,6 +4,7 @@ require_once "../helpers/function.php";
 if (empty($_SESSION['user'])) {
     header("Location: http://localhost:3000");
 }
+ 
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +22,7 @@ if (empty($_SESSION['user'])) {
 <body>
 <header>
     <div class="header">
-      <a href="#" class="logo"><img src="../images\Линии.png" alt="linii"></a>
+      <a href="/" class="logo"><img src="../images\Линии.png" alt="linii"></a>
       
       
 
@@ -32,58 +33,86 @@ if (empty($_SESSION['user'])) {
             <a href="/"><p class="ras">Расписание</p></a>
             <a class="novod" href="../exam.php">Экзамены</a>
             <a class="novod" href="../dz.php">Д/З</a>
-
-              <div>
-                <form action="../exit.php">
-                    <button class="book-button">Выйти</button>
-                </form>
+            <div class="dropdown">
+              <button onclick="myFunction()" class="dropbtn">Кабинет </button>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="../prof.php"><?php echo( $_SESSION['user']);?></a>
+                <a href="../exit.php"> Выйти</a>
               </div>
+            </div>
+             
           
         </div>
      
     </div>
 
 
-    <div class="main-heading">
+  
+  </header>
+
+<main> 
+
+   <div class="main-heading">
       <h1><span id="zagol">Расписание &#129327;</span></h1>
       <p>Расписание может меняться в соответствии с заменами.</p>
     </div>
-  </header>
-
-<main>
    <style>
             td:nth-child(5),td:nth-child(6){text-align:center;}
-            table{border-spacing: 0;border-collapse: collapse;color:grey; text-align:center; border: 2px dotted #aaa; margin: auto; background-color: #0b1622 ; }
+            table{border-spacing: 0;border-collapse: collapse;color:black; text-align:center; border: 2px dotted #aaa; margin: auto; background: linear-gradient(#012E4A 0% 20%, #036280 20% 40%, #378BA4 40% 60%, #81BECE 60% 80%, #d6dcd6 80% 100%); }
             td, th{padding: 10px;border: 1px solid black;}
+            tr{height: 70px;}
+            th{color: white;}
         </style>
  <!-- <img style="margin: 10px auto 20px; display: block; width:50%; height:50%;" src="../images\Расписание.png" alt="raspisanie">-->
+<!---->
+<table  >
+              <tr>
+                <th><b>Время</b></th>
+                <th><b>Понедельник</b></th>
+                <th><b>Вторник</b></th>
+                <th><b>Среда</b></th>
+                <th><b>Четверг</b></th>
+                <th><b>Пятница</b></th>
+              </tr>
+            <tbody>
 
-  <?php
-        mysqli_query($db, "SET NAMES utf8");
-    $sql = "SELECT * FROM lessons ";
-    $result = mysqli_query($db, $sql);
-    
-    try {
-        echo "<table>
-                <tr>
-                    <th>Пара</th>
-                    <th>Учитель</th>
-                </tr>";
-        foreach ($result as $row)
-        {
-            echo "<tr>";
-            echo "<td>" . $row["leson"] . "</td>"; // №2 (table_a)
-            echo "<td>" . $row["teacher"] . "</td>"; // №3 (table_a)
-            echo "</tr>";
-        }
-        echo "</table>";
-    }
-    
-    catch(PDOException $e) {
-        echo "Error DB: " . $e->getMessage();
-    }
-    $db = null;
-    ?>
+                <?php
+
+
+
+
+                        $sql = "SELECT DISTINCT time FROM `lessons` ";
+                        $rest = mysqli_query($db, $sql);
+                        while($t = mysqli_fetch_assoc($rest)){
+                        $sql = "SELECT * FROM lessons WHERE  time = '".$t['time']."'";
+                        //print_r($sql);exit;
+                        $res = mysqli_query($db, $sql);
+                        ?>
+                        <tr>
+                            <td><?php echo $t['time'] ?></td>
+                        <?php 
+                        $week_days = array('Понедельник','Вторник','Среда','Четверг','Пятница');
+                        $classes = array();
+                        while($row = mysqli_fetch_assoc($res)) {
+                            $classes[$row['day']] = $row;
+                        }
+                        foreach ($week_days as $day) {
+                        ?>
+                            <?php if (array_key_exists($day, $classes)) { $row = $classes[$day]; ?>
+                            <td><?php echo $row['leson'] . '<br />' . $row['teacher'] ?></td>
+                            <?php } else { ?>
+                            <td></td>
+                            <?php } ?>
+                        <?php    
+                        }
+                        ?>
+                        </tr>
+                             <?php
+                        } 
+                       
+                ?>
+                </tbody>
+            </table>
 
 </main>
 <footer>
@@ -114,6 +143,6 @@ if (empty($_SESSION['user'])) {
 
 
 
-<script  href="scripts\main.js"></script>
+<script  src="../scripts\script.js"></script>
 </body>
 </html>
