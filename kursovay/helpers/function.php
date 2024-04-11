@@ -17,7 +17,7 @@ function login($name, $psw, $family)
 function student()
 {
     global $db;
-    $result = mysqli_query($db, "SELECT  *  FROM `users`  ;" );
+    $result = mysqli_query($db, "SELECT  *  FROM `student` ;" );
     return mysqli_fetch_all($result, MYSQLI_ASSOC );
 
 }
