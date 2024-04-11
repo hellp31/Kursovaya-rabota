@@ -21,7 +21,7 @@ if (empty($_SESSION['user'])) {
 <body>
 <header>
     <div class="header">
-      <a href="#" class="logo"><img src="../images\Линии.png" alt="linii"></a>
+      <a href="/admpanel/index.php" class="logo"><img src="../images\Линии.png" alt="linii"></a>
       
       
 
@@ -32,26 +32,35 @@ if (empty($_SESSION['user'])) {
             <a class="novod" href="index.php">Расписание</a>
             <a  href="exam.php"><p class="ras">Экзамены</p></a>
             <a class="novod" href="dz.php">Д/З</a>
-
-              <div>
-                <form action="exit.php">
-                    <button class="book-button">Выйти</button>
-                </form>
+            <div class="dropdown">
+              <button onclick="myFunction()" class="dropbtn">Кабинет</button>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="prof.php"><?php echo( $_SESSION['user']);?></a>
+                <a href="exit.php">Выйти</a>
               </div>
+            </div>
           
         </div>
      
     </div>
 
 
-    <div class="main-heading">
-      <h1><span id="zagol">&#128530; Экзамены &#128529; &#129397; </span></h1>
-      <p> </p>
-    </div>
+
   </header>
 
 <main>
-<div class="slider"></div>
+      <div class="main-heading">
+      <h1><span id="zagol">&#128530; Экзамены + ПП и УП&#128529; &#129397; </span></h1>
+      <p> </p>
+    </div>
+ <img style="margin: 10px auto 20px; display: block; width:50%; height:50%;" src="images\exam.png" alt="exam">
+
+ <div class="opis_exam">
+  <p> УП 13.05-02.06</p>
+  <p>ПП 03.06-03.07</p>
+  <p>03.07 - дата последнего экзамена</p>
+  <p>Курсовой до 09.05 - нет снижения балла, до 06.06 - минус балл, после 07.06 - максимум 3. Нет курсового и практики - недопуск к экзаменам</p>
+</div>
   
 </main>
 <footer>
@@ -83,5 +92,6 @@ if (empty($_SESSION['user'])) {
 
 
 <script src="scripts/main.js" defer></script>
+<script  src="scripts/script.js"></script>
 </body>
 </html>

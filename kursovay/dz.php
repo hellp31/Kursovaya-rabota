@@ -21,7 +21,7 @@ if (empty($_SESSION['user'])) {
 <body>
 <header>
     <div class="header">
-      <a href="#" class="logo"><img src="../images\Линии.png" alt="linii"></a>
+      <a href="/admpanel/index.php" class="logo"><img src="../images\Линии.png" alt="linii"></a>
       
       
 
@@ -32,26 +32,27 @@ if (empty($_SESSION['user'])) {
             <a class="novod" href="index.php">Расписание</a>
             <a class="novod" href="exam.php">Экзамены</a>
             <a  href="dz.php"><p class="ras">Д/З</p></a>
-
-              <div>
-                <form action="exit.php">
-                    <button class="book-button">Выйти</button>
-                </form>
+            <div class="dropdown">
+              <button onclick="myFunction()" class="dropbtn">Кабинет</button>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="prof.php"><?php echo( $_SESSION['user']);?></a>
+                <a href="exit.php">Выйти</a>
               </div>
+            </div>
           
         </div>
      
     </div>
 
 
-    <div class="main-heading">
-      <h1><span id="zagol">Домашка &#129315;</span></h1>
-      <p></p>
-    </div>
+   
   </header>
 
 <main>
-  
+   <div class="main-heading">
+      <h1><span id="zagol">Домашка &#129315;</span></h1>
+      <p></p>
+    </div>
   
 </main>
 <footer>
@@ -83,5 +84,6 @@ if (empty($_SESSION['user'])) {
 
 
 <script  href="scripts\main.js"></script>
+<script  src="scripts/script.js"></script>
 </body>
 </html>

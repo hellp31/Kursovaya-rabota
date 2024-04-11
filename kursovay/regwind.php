@@ -11,6 +11,7 @@
 
 </head>
 <body>
+  <header class="otverh"></header>
     <form action="register.php" method="post">
         <div class="container">
           <h1 class="reg_wind_text_higth">Регистрация</h1>
@@ -37,12 +38,15 @@
           
         </div>
       
-        <div class="container signin">
+        <div class="container_signin">
           <p class="reg_wind_text">Создавая учетную запись, вы соглашаетесь с нашими <a href="https://ru.wikipedia.org/wiki/Конфиденциальность">Условия и конфиденциальность</a>.</p>
           <p class="reg_wind_text">У вас уже есть учетная запись? <a href="singin.php">Войти</a>.</p>
         </div>
-        <button type="submit" class="registerbtn">Зарегистрироваться</button>
+        <div style="margin-bottom: 5%;">
+        <button type="submit" class="registerbtn" >Зарегистрироваться</button>
+      </div>
       </form>
+
       <footer>
         <div class="footer">
           <div class="row">

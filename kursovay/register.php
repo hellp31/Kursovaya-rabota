@@ -5,7 +5,11 @@ $family=filter_var(trim($_POST['family']));
 $psw=filter_var(trim($_POST['psw']));
 $psw_repeat=filter_var(trim($_POST['psw_repeat']));
 
-
+echo"<script language='javascript'>
+setTimeout(function(){
+    window.location.href = 'regwind.php';
+  },0 );
+</script>";
 
 if ($psw != $psw_repeat ){
         echo"<script language='javascript'> 
@@ -36,10 +40,6 @@ exit();
         echo "Ошибка:", $db->error;
     }   
 }
-echo"<script language='javascript'>
-setTimeout(function(){
-    window.location.href = 'regwind.php';
-  },0 );
-</script>";
+
 
 

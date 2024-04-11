@@ -1,3 +1,4 @@
+
 <?php
 require_once "helpers/function.php";
 if (empty($_SESSION['user'])) {
@@ -15,29 +16,30 @@ if (empty($_SESSION['user'])) {
     <link rel="stylesheet" href="../styles\main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
-
+   
 </head>
 <body>
 <header>
     <div class="header">
-      <a href="/admpanel/index.php" class="logo"><img src="images\Линии.png" alt="linii"></a>
+      <a href="/" class="logo"><img src="../images\Линии.png" alt="linii"></a>
       
       
 
 
         <div class="header-right">
-            <a  href="news.php"><p class="ras">Новости </p></a>
-            <a class="novod" href="studens.php">Студенты</a>
-            <a class="novod" href="index.php">Расписание</a>
-            <a class="novod" href="exam.php">Экзамены</a>
-            <a class="novod" href="dz.php">Д/З</a>
+            <a class="novod" href="../news.php">Новости</a>
+            <a class="novod" href="../studens.php">Студенты</a>
+            <a href="admpanel/index.php"><p class="novod">Расписание</p></a>
+            <a class="novod" href="../exam.php">Экзамены</a>
+            <a class="novod" href="../dz.php">Д/З</a>
             <div class="dropdown">
-              <button onclick="myFunction()" class="dropbtn">Кабинет</button>
+              <button onclick="myFunction()" class="dropbtn">Кабинет </button>
               <div id="myDropdown" class="dropdown-content">
-                <a href="prof.php"><?php echo( $_SESSION['user']);?></a>
-                <a href="exit.php">Выйти</a>
+
+                <a href="../exit.php"> Выйти</a>
               </div>
             </div>
+             
           
         </div>
      
@@ -47,22 +49,12 @@ if (empty($_SESSION['user'])) {
   
   </header>
 
-<main>
-    <div class="main-heading">
-      <h1><span id="zagol">Новости &#129300;</span></h1>
-      <p></p>
+<main> 
+   <div class="main-heading">
+      <h1><span id="zagol">Личный кабинет</span></h1>
+      <p>Тут в будущем появится все ваше</p>
     </div>
 
-<div class="slider-container">
-    <div class="slider">
-      <img src="images/Линии.png" alt="">
-      <img src="images/песик.jpg" alt="">
-      <img src="images/logo.jpg" alt="">
-    </div>
-    <button class="prev-button" aria-label="Посмотреть предыдущий слайд">&lt;</button>
-    <button class="next-button" aria-label="Посмотреть следующий слайд">&gt</button>
-  </div>
-  
 </main>
 <footer>
   <div class="footer">
@@ -92,7 +84,6 @@ if (empty($_SESSION['user'])) {
 
 
 
-<script  src="scripts/main.js"></script>
-<script  src="scripts/script.js"></script>
+<script  src="../scripts\script.js"></script>
 </body>
 </html>

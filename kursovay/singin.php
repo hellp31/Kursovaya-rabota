@@ -18,7 +18,8 @@ if (!empty($_SESSION['user'])) {
 
 </head>
 <body>
-    <form class="otverh">
+  <header class="otverh"></header>
+    <form>
         <div class="container">
           <h1 class="reg_wind_text_higth">Войти</h1>
           <p class="reg_wind_text_higth">Пожалуйста, заполните эту форму, чтобы зайти в аккаунт</p>
@@ -53,11 +54,12 @@ if (!empty($_SESSION['user'])) {
          
           
         </div>
-        <div class="container signin">
+        <div class="container_signin">
           <p class="reg_wind_text">У вас еще нет аккаунта? <a href="regwind.php">Зарегистрироваться</a>.</p>
         </div>
-      
+        <div style="margin-bottom: 10%;">
         <button type="submit" class="registerbtn">Войти</button>
+        </div>
       </form>
       <footer>
         <div class="footer">
