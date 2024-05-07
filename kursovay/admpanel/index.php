@@ -32,7 +32,7 @@ if (empty($_SESSION['user'])) {
             <a class="novod" href="../studens.php">Студенты</a>
             <a href="/"><p class="ras">Расписание</p></a>
             <a class="novod" href="../exam.php">Экзамены</a>
-            <a class="novod" href="../dz.php">Д/З</a>
+            
             <div class="dropdown">
               <button onclick="myFunction()" class="dropbtn">Кабинет </button>
               <div id="myDropdown" class="dropdown-content">
