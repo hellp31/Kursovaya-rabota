@@ -291,8 +291,8 @@ main{
     height: 50px;
     background-color: transparent;
     border: none;
-    font-size: 24px;
-    color: white;
+    font-size: 40px;
+    color: black;
   }
   
   .prev-button {
@@ -369,4 +369,94 @@ main{
 }
 .header.expand .sign:after{
   content:"-";
+}
+
+
+.new_photo1 {
+
+  position: relative;
+
+}
+
+
+.new_text1 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  text-transform: uppercase;
+  color: white;
+  width: 100%;
+  background: #00000094;
+  padding: 0.5%;
+  text-align: center;
+  font: bold 24px/34px Helvetica, Sans-Serif;
+}
+.new_photo2 {
+  position: relative;
+
+}
+
+.new_text2 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  text-transform: uppercase;
+  color: white;
+  width: 100%;
+  background: #00000094;
+  padding: 0.5%;
+  text-align: center;
+  font: bold 24px/34px Helvetica, Sans-Serif;
+}
+.new_photo3 {
+
+  position: relative;
+
+}
+
+.new_text3 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  text-transform: uppercase;
+  color: white;
+  width: 100%;
+  background: #00000094;
+  padding:0.5%;
+  text-align: center;
+  font: bold 24px/34px Helvetica, Sans-Serif;
+}
+
+
+.dz_pad{
+  width: 50%;
+  height: 50%;
+  padding: 100px;
+  background-color: #0b1622;
+}
+
+
+
+
+.svz {
+  background: #036280;
+  width: 60%;
+  height: 45%;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.opis{
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  width: 80%;
+  margin: 10px auto 20px;
+   display: block;
+
+}
+
+.silki{
+  text-decoration: none;
+  color: white;
 }
