@@ -25,13 +25,20 @@ if (!empty($_SESSION['user'])) {
           <p class="reg_wind_text_higth">Пожалуйста, заполните эту форму, чтобы зайти в аккаунт</p>
           <div class="pole_reg">
           <?php
+          global $name,$family,$items;
           $name = strip_tags($_GET['name'] ?? "");
           $family=strip_tags($_GET['family'] ?? "");
           $psw = strip_tags($_GET['psw'] ?? "");
               if ($name && $psw && $family) {
                   if (login($name, $psw, $family)) {
+                      
                       header("Location: http://localhost:3000/admpanel");
+                      
+                      
+  
                       $_SESSION['user'] = $name;
+                      $_SESSION['family'] = $family;
+                      
                   } else {
                       echo "<script language='javascript'> 
                           alert('Нет такого пользователя')

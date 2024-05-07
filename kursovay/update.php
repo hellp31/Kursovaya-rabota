@@ -1,6 +1,5 @@
 
 <?php
-
 require_once "helpers/function.php";
 if (empty($_SESSION['user'])) {
     header("Location: http://localhost:3000");
@@ -36,7 +35,7 @@ if (empty($_SESSION['user'])) {
             <div class="dropdown">
               <button onclick="myFunction()" class="dropbtn">Кабинет </button>
               <div id="myDropdown" class="dropdown-content">
-
+              <a href="prof.php"><p class="ras"><?php echo( $_SESSION['user']);?></p></a>
                 <a href="exit.php"> Выйти</a>
               </div>
             </div>
@@ -49,98 +48,78 @@ if (empty($_SESSION['user'])) {
 
   
   </header>
-<style>
-.linia{
-  height: 0.5px;
-  width: 100%;
-  background-color: white;
 
-}
-hr{
-  width:'50%' ;
-  color:'green';
-}
-  .body{
-    width: 90%;
-    background-color: white;
-    height: 50px;
-    margin: 10px auto 20px;
-    display: block;
-    margin-top: 50px;
-  }
-
-  .tit{
-    float: left;
-  }
-  .izm{
-float: right;
-margin-left: 950px ;
-  }
-</style>
 <main> 
    <div class="main-heading">
       <h1><span id="zagol">Личный кабинет <?php echo( $_SESSION['user']);?>а</span></h1>
       <p>Привет <?php echo( $_SESSION['user']);?>.</p>
-      <p>Создайте пост</p>
-   </div>
+      <p>Тут в будущем появится все ваше</p>
+    </div>
 
-
-   <center>
+    <center>
       
-<div class="svz">
-  <div style='background: #0b1622; color:white; width:100%;height:100px'>
-      <div style='float:left'>
-        <h1  >Посты</h1>
+      <div class="svz">
+      <div style='background: #0b1622; color:white; width:100%;height:100px'>
+      <div style='float:center'>
+    <h2>Поменять пост</h2>
+    
       </div>
-        <div style='float:right'>
-        <h1 ><a class="action"  href='create.php'>Создать</a></h1>
-        </div>
-  </div>
-  <br>
+      </div>
 
 
-
-
-<?php
-      
-
-  $name = $_SESSION['user'] ?? '';
-$family = $_SESSION['family'] ?? '';
-
-// Выполняем запрос для получения ID пользователя
-$sql = "SELECT id FROM `users` WHERE name=? AND family=?";
-$stmt = $db->prepare($sql); // Используем подготовленные выражения для предотвращения SQL-инъекций
-$stmt->bind_param("ss", $name, $family);
-$stmt->execute();
-$result = $stmt->get_result(); // Получаем результат выполнения запроса
-$row = $result->fetch_assoc(); // Извлекаем первую строку результата
-$author_id = $row['id'] ?? ''; // Присваиваем переменной $author_id значение ID пользователя
-
-// Выполняем запрос для получения сообщений автора
-$sql = "SELECT DISTINCT * FROM `posts` WHERE author_id = ?";
-$stmt = $db->prepare($sql);
-$stmt->bind_param("i", $author_id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        echo "<div class='tit'>
-            {$row['title']}
-            <div  class='izm'>
-                <td><a href='update.php?id={$row['id']}'>Изменить</a></td>
-            </div>
-        </div>
-        <div>
-            <p class='body'>{$row['body']}</p>
-        </div>
-        <div class='linia'></div>";
+    <?php
+if($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["id"]))
+{
+    $userid = $db->real_escape_string($_GET["id"]);
+    $sql = "SELECT * FROM `posts` where id='$userid'";
+    if($result = $db->query($sql)){
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()) {
+                $title = $row["title"];
+                $body = $row["body"];
+                
+                echo"
+                <form  method='post'>
+                
+                <input type='hidden' name='id' value='$userid' />
+                <p>Заголовок:
+                <br>
+                <input type='text' name='title'  value='$title' /></p>
+                <br>
+                
+                <p>Тело:
+                <br>
+                <textarea name='body' style='  width:50%; height:50%' >$body</textarea></p>
+                <input type='submit' value='Сохранить'>
+                </form>";
+                echo "<td><form action='delete.php' method='post'>
+                                    <input type='hidden' name='id' value='" . $row["id"] . "' />
+                                    <input type='submit' value='Удалить'>
+                            </form></td>";
+            }
+            $result->free();
+        }
     }
-  }
-?>
-      </div>
+} 
+elseif (isset($_POST["title"]) && isset($_POST["body"]) && isset($_POST["id"])) {
+    $title=$db->real_escape_string($_POST['title']);
+    $body=$db->real_escape_string($_POST['body']);
+    $userid = $db->real_escape_string($_POST['id']);
+    $sql = "UPDATE posts SET title = '$title', body = '$body' WHERE id = '$userid' ";
+    if($result = $db->query($sql)){
+        header("Location: prof.php");
+    } else{
+        echo "Ошибка: " . $db->error;
+    }
+}
+else{
+    echo "Некорректные данные";
+}
 
-   </center>
+$db->close();
+?>
+
+      </div>
 </main>
 <footer>
   <div class="footer">

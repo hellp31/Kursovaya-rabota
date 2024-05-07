@@ -1,4 +1,3 @@
-
 <?php
 require_once "helpers/function.php";
 if (empty($_SESSION['user'])) {
@@ -21,16 +20,16 @@ if (empty($_SESSION['user'])) {
 <body>
 <header>
     <div class="header">
-      <a href="/admpanel/index.php" class="logo"><img src="../images\Линии.png" alt="linii"></a>
+      <a href="/admpanel/index.php" class="logo"><img src="images\Линии.png" alt="linii"></a>
       
       
 
 
         <div class="header-right">
-            <a class="novod" href="news.php">Новости</a>
+            <a  href="news.php"><p class="ras">Новости </p></a>
             <a class="novod" href="studens.php">Студенты</a>
             <a class="novod" href="index.php">Расписание</a>
-            <a  href="exam.php"><p class="ras">Экзамены</p></a>
+            <a class="novod" href="exam.php">Экзамены</a>
           
             <div class="dropdown">
               <button onclick="myFunction()" class="dropbtn">Кабинет</button>
@@ -45,23 +44,30 @@ if (empty($_SESSION['user'])) {
     </div>
 
 
-
+  
   </header>
 
 <main>
-      <div class="main-heading">
-      <h1><span id="zagol">&#128530; Экзамены + ПП и УП&#128529; &#129397; </span></h1>
-      <p> </p>
+    <div class="main-heading">
+      <h1><span id="zagol">Новости &#129300;</span></h1>
+      <h2>Студенты побывали на конференции Альфа-конфа Ecom</h2>
     </div>
- <img style="margin: 10px auto 20px; display: block; width:50%; height:50%;" src="images\exam.png" alt="exam">
+    <div class="opis">
+    <p>В рамках популяризации Профессионалитета студенты Люберецкого техникума имени Ю.А. Гагарина специальности 
+      «Информационные системы и программирование» побывали на конференции Альфа-конфа Ecom</p>
 
- <div class="opis_exam">
-  <p> УП 13.05-02.06</p>
-  <p>ПП 03.06-03.07</p>
-  <p>03.07 - дата последнего экзамена</p>
-  <p>Курсовой до 09.05 - нет снижения балла, до 06.06 - минус балл, после 07.06 - максимум 3. Нет курсового и практики - недопуск к экзаменам</p>
-</div>
+    <img style="margin: 10px auto 20px; display: block; width:25%; height:25%;" src="images/news1.jpg" alt="">
+    <p>
+    Студенты провели тест-драйв сервисов: попробовали технологии и пообщались с экспертами. Сфотографировались со спикером Надеждой Виноградовой
+    </p>
+    <p>Надежда Виноградова из Data Insight рассказала о том, куда движется еком,
+       Денис Анисимов и Татьяна Крестьянинова из Alfa Pay Business помогли разобраться в платежах и платежных сервисах для бизнеса,
+        Каролина Епуре поделилась цифрами об использовании нейросетей в бизнесе.</p>
+    </div>
+
   
+
+
 </main>
 <footer>
   <div class="footer">
@@ -91,7 +97,7 @@ if (empty($_SESSION['user'])) {
 
 
 
-<script src="scripts/main.js" defer></script>
+<script  src="scripts/main.js"></script>
 <script  src="scripts/script.js"></script>
 </body>
 </html>

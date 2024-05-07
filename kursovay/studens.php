@@ -32,7 +32,7 @@ if (empty($_SESSION['user'])) {
             <a href="studens.php"><p class="ras">Студенты</p></a>
             <a  class="novod" href="index.php">Расписание</a>
             <a class="novod" href="exam.php">Экзамены</a>
-            <a class="novod" href="dz.php">Д/З</a>
+           
             <div class="dropdown">
               <button onclick="myFunction()" class="dropbtn">Кабинет</button>
               <div id="myDropdown" class="dropdown-content">
@@ -71,9 +71,10 @@ display: none;
 
 
             td:nth-child(5),td:nth-child(6){text-align:center;}
-            table{width: 1500px;border-spacing: 0;border-collapse: collapse;color:black; text-align:center;  margin: auto; background: linear-gradient(#012E4A 0% 4%, #036280 4% 38.5%, #378BA4 38.5% 61.5%, #81BECE 61.5% 81%, #d6dcd6 81% 100%); border-radius:100px; }
-            td, th{padding: 10px;border: 1px solid black;}
+            table{width: 1500px;border-spacing: 0;color:black; text-align:center;  margin: auto; background: linear-gradient(#012E4A 0% 4%, #036280 4% 38.5%, #378BA4 38.5% 61.5%, #81BECE 61.5% 81%, #d6dcd6 81% 100%); border-radius:100px; }
+            td, th{padding: 10px;}
             tr{height: 70px; }
+            tr,td,th{border: 1px solid black;}
             th{color: white;}
             .btn{position: sticky;top: 110px;padding: 10px 30px;border-radius: 50px; }
             .btn:hover {
@@ -112,7 +113,7 @@ display: none;
 
     
             <div id="click-expand1"></div>
-            <div class="wrap-expand-table"> <button class="btn1" id="button1" ><a id="a1" href="#click-expand1">Развернуть</a></button><button class="btn"  id="button2" ><a id="a1"href="#close">Cвернуть</a></button>
+            <div class="wrap-expand-table"> <a id="a1" href="#click-expand1"><button class="btn1" id="button1" >Развернуть</button></a><a id="a1"href="#close"><button class="btn"  id="button2" >Cвернуть</button></a>
             <table class="my-table">
               <thead>
             <tr> 

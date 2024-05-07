@@ -30,7 +30,7 @@ if (empty($_SESSION['user'])) {
             <a class="novod" href="studens.php">Студенты</a>
             <a class="novod" href="index.php">Расписание</a>
             <a class="novod" href="exam.php">Экзамены</a>
-            <a class="novod" href="dz.php">Д/З</a>
+           
             <div class="dropdown">
               <button onclick="myFunction()" class="dropbtn">Кабинет</button>
               <div id="myDropdown" class="dropdown-content">
@@ -55,9 +55,26 @@ if (empty($_SESSION['user'])) {
 
 <div class="slider-container">
     <div class="slider">
-      <img src="images/Линии.png" alt="">
-      <img src="images/песик.jpg" alt="">
-      <img src="images/logo.jpg" alt="">
+    <div class="new_photo1">
+    <a class="silki" href="news1.php">
+      <img src="images/news1.jpg" alt="">
+      <div class="new_text1"><a class="silki" href="news1.php">Студенты побывали на конференции Альфа-конфа Ecom</a></div>
+    </a>
+    </div>
+
+    <div class="new_photo2">
+    <a class="silki" href="news2.php">
+      <img src="images/news2.jpg" alt="">
+      <div class="new_text2"><a class="silki" href="news2.php"><p>Выложили расписание</p><p style="margin-top:-25px">зачетной недели</p> </a></div>
+    </a>
+</div>
+
+<div class="new_photo3">
+<a class="silki" href="news3.php">
+      <img src="images/news3.png" alt="">
+      <div class="new_text3"><a class="silki" href="news3.php">Предлагают работать на срок с 26 апреля  по 31  мая</a></div>
+</a>
+</div>
     </div>
     <button class="prev-button" aria-label="Посмотреть предыдущий слайд">&lt;</button>
     <button class="next-button" aria-label="Посмотреть следующий слайд">&gt</button>
