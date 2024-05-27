@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+<h1>{% block title %}Log In{% endblock %}</h1>
+}
+
+
+{% block body %}
+
+
+
+
+<div class="container" style=" width:30%">
+<main class="form-signin w-100 m-auto">
+<form method="post">
+
+    <h1 class="h3 mb-3 fw-normal" style="text-align:center">Войти</h1>
+
+    <div class="form-floating" style="margin-bottom: 5%;">
+      <input  class="form-control" name="username" id="username"  placeholder="example" required>
+      <label for="username">Login</label>
+    </div>
+
+    <div class="form-floating" style="margin-bottom: 5%;">
+      <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+      <label for="password">Password</label>
+    </div>
+    <div>
+        <p class="reg_wind_text">У вас еще нет аккаунта? <a href="/auth/register">Зарегистрироваться</a>.</p>
+</div>
+    <button class="btn btn-primary w-100 py-2" type="submit">Войти</button>
+
+  </form>
+</main>
+</div>
+
+{% endblock %}
