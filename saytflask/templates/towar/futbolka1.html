@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block header %}
+
+
+
+    {% if g.user %}
+<div style=" margin-right:50px ">
+    <p style="float: left; margin-right:20px "><a href="/prof">{{ g.user['username'] }}</a></p>
+    <a href="{{ url_for('auth.logout') }}">Log Out</a>
+</div>
+    {% else %}
+    <div style="margin-right:50px">
+        <a href="{{ url_for('auth.login') }}">Log In</a>
+    </div>
+    {% endif %}
+
+{% endblock%}
+
+
+
+
+{% block body %}
+<main class="container">
+
+  <!-- Left Column  -->
+  <div class="left-column" style="margin-left: 150px">
+    <img  class="active" style="width:550px; height:450px;" src="{{ url_for('static', filename='images/footb.jpg') }}" alt="">
+  </div>
+
+
+  <!-- Right Column -->
+  <div class="right-column">
+<form action="/add_cort_futbolka1" method="post">
+    <!-- Product Description -->
+    <div class="product-description">
+      <span>Футболка</span>
+      <h1>Футболка белая с принтом</h1>
+      <p>Футболка выполнена из натурального хлопка, цвет белый, приятная на ощупь. Принт нанесён методом шелкографии, не боится стирок. Размер XL.</p>
+    </div>
+
+    <!-- Product Configuration -->
+
+
+    <!-- Product Pricing -->
+    <div class="product-price">
+      <span>3000руб</span>
+      <button  class="cart-btn" type="submit">В корзину</button>
+    </div>
+</form>
+  </div>
+</main>
+
+{% endblock%}

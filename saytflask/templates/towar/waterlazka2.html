@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block header %}
+
+
+
+ {% if g.user %}
+<div style=" margin-right:50px ">
+    <p style="float: left; margin-right:20px "><a href="/prof">{{ g.user['username'] }}</a></p>
+    <a href="{{ url_for('auth.logout') }}">Log Out</a>
+</div>
+    {% else %}
+    <div style="margin-right:50px">
+        <a href="{{ url_for('auth.login') }}">Log In</a>
+    </div>
+    {% endif %}
+
+{% endblock%}
+
+
+
+
+{% block body %}
+<main class="container">
+
+  <!-- Left Column  -->
+  <div class="left-column" style="margin-left: 150px">
+    <img  class="active" style="width:550px; height:450px;" src="{{ url_for('static', filename='images/watelaz.jpg') }}" alt="">
+  </div>
+
+
+  <!-- Right Column -->
+  <div class="right-column">
+<form action="/add_cort_watelazka2" method="post">
+    <!-- Product Description -->
+    <div class="product-description">
+      <span>Водолазка</span>
+      <h1>Шерстяная водолазка</h1>
+      <p>Эта шерстяная водолазка станет отличным дополнением к вашему гардеробу. Выполнена из высококачественной шерсти, она приятна на ощупь и прекрасно сохраняет тепло. Водолазка имеет высокий воротник, который защитит вашу шею от холода.  Размер XL.</p>
+    </div>
+
+    <!-- Product Configuration -->
+
+
+    <!-- Product Pricing -->
+    <div class="product-price">
+      <span>4000руб</span>
+      <button  class="cart-btn" type="submit">В корзину</button>
+    </div>
+</form>
+  </div>
+</main>
+
+{% endblock%}

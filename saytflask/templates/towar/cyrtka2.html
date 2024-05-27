@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block header %}
+
+
+
+{% if g.user %}
+<div style=" margin-right:50px ">
+    <p style="float: left; margin-right:20px "><a href="/prof">{{ g.user['username'] }}</a></p>
+    <a href="{{ url_for('auth.logout') }}">Log Out</a>
+</div>
+    {% else %}
+    <div style="margin-right:50px">
+        <a href="{{ url_for('auth.login') }}">Log In</a>
+    </div>
+    {% endif %}
+
+{% endblock%}
+
+
+
+
+{% block body %}
+<main class="container">
+
+  <!-- Left Column  -->
+  <div class="left-column" style="margin-left: 150px">
+    <img  class="active" style="width:550px; height:450px;" src="{{ url_for('static', filename='images/ankle-boots-outfits-idea-lead-a14ac2b7b9bb43da8f176bafa81ed0db_8ed4qLnn.jpg') }}" alt="">
+  </div>
+
+
+  <!-- Right Column -->
+  <div class="right-column">
+<form action="/add_cort_kyrtka2" method="post">
+    <!-- Product Description -->
+    <div class="product-description">
+      <span>Куртка</span>
+      <h1>Куртка кожаная весенняя</h1>
+      <p>Кожаная куртка чёрного цвета, удлинённая, с воротником-стойкой и манжетами на молнии. На груди два врезных кармана на молнии, есть два внутренних кармана. Подкладка хлопковая, с фирменным логотипом. Куртка выполнена из мягкой кожи, отлично подойдёт для весеннего сезона. Размер 52.</p>
+    </div>
+
+    <!-- Product Configuration -->
+
+
+    <!-- Product Pricing -->
+    <div class="product-price">
+      <span>5500руб</span>
+      <button  class="cart-btn" type="submit">В корзину</button>
+    </div>
+</form>
+  </div>
+</main>
+
+{% endblock%}
