@@ -13,11 +13,12 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
-        DATABASE='localhost:/var/rdb/flaskr.fdb',  # /var/rdb/ dir must exist like in lab1
+        DATABASE=os.path.join(app.instance_path, 'flaskr.fdb'),
         USER='sysdba',
         PASSWORD='masterkey',
-        LIBRARY='/opt/RedDatabase/lib/libfbclient.so'
+        LIBRARY=os.path.join(app.root_path, 'rdb/libfbclient.so')
     )
+
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
