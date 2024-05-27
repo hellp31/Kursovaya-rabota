@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+
+
+    {% if g.user %}
+    <div style=" margin-right:50px ">
+        <p style="float: left; margin-right:20px ">{{ g.user['username'] }}</p>
+        <a href="{{ url_for('auth.logout') }}">Log Out</a>
+    </div>
+    {% else %}
+    <div style="margin-right:50px">
+        <a href="{{ url_for('auth.login') }}">Log In</a>
+    </div>
+    {% endif %}
+
+{% endblock%}
+
+{% block body %}
+
+<h1 style="text-align:center">Корзина</h1>
+<div style="width:100%;  text-align:center;">
+    <p class="body" >Предмет</p>
+    <p class="body" style="margin-left:200px;">Размер</p>
+    <p class="body" style="margin-left:80px;">Цена</p>
+    <p class="ko">Количество</p>
+
+    {% for cart in products %}
+
+    <article class="cart">
+
+
+
+        <p class="body" >{{ cart['name'] }}</p>
+        <p class="body">{{ cart['size'] }}</p>
+        <p class="body">{{ cart['price'] }}</p>
+        <p class="body">{{ cart['quantity'] }}</p>
+
+        <p class="ko"><a   href="{{ url_for('cart.delete_item', item_id=cart['id'], _external=True) }}">Удалить</a></p>
+
+    </article>
+    {% if not loop.last %}
+    <hr>
+
+    {% endif %}
+    {% endfor %}
+
+    <!-- Предполагаю, что вам нужно вывести общую сумму корзины здесь -->
+
+
+</div>
+<div class="container" style=" width:30% ; margin-top:50px">
+<main class="form-signin w-100 m-auto">
+    <h5>Сумма: {{ suma}}</h5>
+<!-- ... -->
+
+<!-- ... -->
+
+<form action="/buy" method="post">
+
+    <h1 class="h3 mb-3 fw-normal" style="text-align:center">Регистрация заказа</h1>
+
+    <div class="form-floating" style="margin-bottom: 5%;">
+      <input  class="form-control" name="address" id="address"  placeholder="Адрес" required>
+      <label for="address">Адрес</label>
+    </div>
+
+    <div class="form-floating" style="margin-bottom: 5%;">
+      <input  class="form-control" name="sposob" id="sposob"  placeholder="Способ доставки" required>
+      <label for="sposob">Способ доставки</label>
+    </div>
+    <div class="form-floating" style="margin-bottom: 5%;">
+      <input  class="form-control" name="contact" id="contact"  placeholder="Номер телефона или почту" required>
+      <label for="contact">Номер телефона или почту</label>
+    </div>
+    <p class="reg_wind_text">Если вы не заполните форму для регистрации заказа, вы не сможете этот товар купить </p>
+
+
+    <button class="btn btn-primary w-100 py-2" type="submit" >Купить</button>
+
+</form>
+
+
+
+<!-- ... -->
+
+<!-- ... -->
+</main>
+</div>
+
+{% endblock%}

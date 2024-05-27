@@ -1,0 +1,85 @@
+
+{% extends 'base.html' %}
+
+
+{% block header %}
+
+
+
+    {% if g.user %}
+<div style=" margin-right:50px ">
+    <p style="float: left; margin-right:20px "><a href="/prof">{{ g.user['username'] }}</a></p>
+    <a href="{{ url_for('auth.logout') }}">Log Out</a>
+</div>
+    {% else %}
+    <div style="margin-right:50px">
+        <a href="{{ url_for('auth.login') }}">Log In</a>
+    </div>
+    {% endif %}
+
+{% endblock%}
+
+{% block body %}
+<div class="container">
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+
+    <div class="col" >
+
+        <a href="/futbolka_print_ser" style="text-decoration: none; color: black;">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal"><ya-tr-span data-index="8-0" data-translated="false" data-source-lang="en" data-target-lang="ru" data-value="Free" data-translation="Бесплатно" data-ch="0" data-type="trSpan" style="visibility: initial !important;">Футболка белая с принтом</ya-tr-span></h4>
+          </div>
+          <div class="card-body">
+              <img style="margin: 10px auto 20px; display: block; width:50%; height:50%;" src="{{ url_for('static', filename='images/footb.jpg') }}" />
+
+                 <h5>3000руб</h5>
+
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><ya-tr-span data-index="14-0" data-translated="false" data-source-lang="en" data-target-lang="ru" data-value="Sign up for free" data-translation="Купить" data-ch="0" data-type="trSpan" style="visibility: initial !important;">Купить</ya-tr-span></button>
+            </a>
+
+          </div>
+        </div>
+      </div>
+      <div class="col">
+          <a href="/futbolka_print_tsevet_6" style="text-decoration: none; color: black;">
+
+         <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal"><ya-tr-span data-index="8-0" data-translated="false" data-source-lang="en" data-target-lang="ru" data-value="Free" data-translation="Бесплатно" data-ch="0" data-type="trSpan" style="visibility: initial !important;">Футболка белая с принтом</ya-tr-span></h4>
+          </div>
+          <div class="card-body">
+           <img style="margin: 10px auto 20px; display: block; width:50%; height:50%;" src="{{ url_for('static', filename='images/footbal2.jpg') }}" />
+                <h5>2000руб</h5>
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><ya-tr-span data-index="14-0" data-translated="false" data-source-lang="en" data-target-lang="ru" data-value="Sign up for free" data-translation="Купить" data-ch="0" data-type="trSpan" style="visibility: initial !important;">Купить</ya-tr-span></button>
+
+          </a>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col">
+
+          <a href="/futbolka_print_tsevet_mnogo" style="text-decoration: none; color: black;">
+
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal"><ya-tr-span data-index="8-0" data-translated="false" data-source-lang="en" data-target-lang="ru" data-value="Free" data-translation="Бесплатно" data-ch="0" data-type="trSpan" style="visibility: initial !important;">Футболка белая с принтом</ya-tr-span></h4>
+          </div>
+          <div class="card-body">
+              <img style="margin: 10px auto 20px; display: block; width:50%; height:50%;" src="{{ url_for('static', filename='images/fotbal.jpg') }}" />
+                <h5>3500руб</h5>
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><ya-tr-span data-index="14-0" data-translated="false" data-source-lang="en" data-target-lang="ru" data-value="Sign up for free" data-translation="Купить" data-ch="0" data-type="trSpan" style="visibility: initial !important;">Купить</ya-tr-span></button>
+
+          </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+{% endblock%}
+
+

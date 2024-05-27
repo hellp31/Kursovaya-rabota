@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Главная страница
+{% endblock%}
+
+{% block header %}
+
+
+
+    {% if g.user %}
+<div style=" margin-right:50px ">
+    <p style="float: left; margin-right:20px "><a href="/prof">{{ g.user['username'] }}</a></p>
+    <a href="{{ url_for('auth.logout') }}">Log Out</a>
+</div>
+    {% else %}
+    <div style="margin-right:50px">
+        <a href="{{ url_for('auth.login') }}">Log In</a>
+    </div>
+    {% endif %}
+
+{% endblock%}
+
+
+{% block body %}
+<div style="width:100%; height:700px;text-align:center;background:#eeeeee ">
+<a href="/football">
+    <img  style="width:33%; height:650px;   " src="{{ url_for('static', filename='images/footbal2.jpg') }}" alt=""/>
+</a>
+    <a href="/waterlazka">
+    <img style="width:33%; height:650px;  " src="{{ url_for('static', filename='images/b1c7242534984b8b874f1812d9be56c6_fuse_59430251_0.jpg') }}" alt=""/>
+        </a>
+        <a href="/cyrtki">
+    <img style="width:33%; height:650px; " src="{{ url_for('static', filename='images/run-reebok-running-shoes-64e3beadbe692_8ed4qLnn.jpg') }}" alt=""/>
+    </a>
+    <div style="width:100%; height:50px;"></div>
+</div>
+
+
+<h1 style="margin-top:50px; text-align:center;margin-bottom:50px;">Популярное сейчас</h1>
+
+<div style="width:100%; height:600px; text-align:center;">
+    <div style="float: left; width:33%; height:550px;">
+<a href="/cyrtca_koj_vesen">
+    <img  style="width:600px; height:450px;   " src="{{ url_for('static', filename='images/1024x1024-Men-Executive-Chestnut-052821-3.4_8ed4qLnn.jpg') }}" alt=""/>
+    <h3>Куртка кожаная весенняя</h3>
+    <h6>6000руб</h6>
+</a>
+    </div>
+
+
+    <div style="float: left; width:33%; height:550px;">
+    <a href="/futbolka_print_ser">
+    <img style="width:600px; height:450px;   " src="{{ url_for('static', filename='images/footb.jpg') }}" alt=""/>
+        <h3>Футболка белая с принтом</h3>
+        <h6>3000руб</h6>
+        </a>
+        </div>
+
+
+    <div style="width:33%; height:550px;float: left;">
+        <a href="/cyrtca_polyistr_bezmex">
+
+    <img style="width:600px; height:450px;   " src="{{ url_for('static', filename='images/Image-11_8ed4qLnn.jpg') }}" alt=""/>
+            <h3>Куртка из полиэстера</h3>
+            <h6>5000руб</h6>
+    </a>
+        </div>
+
+</div>
+
+<div style="width:100%; height:600px; text-align:center; margin-top:-150px; ">
+    <div style="float: left; width:33%; height:550px;">
+<a href="/cyrtca_koj_vesen_kor">
+    <img  style="width:600px; height:450px;   " src="{{ url_for('static', filename='images/ankle-boots-outfits-idea-lead-a14ac2b7b9bb43da8f176bafa81ed0db_8ed4qLnn.jpg') }}" alt=""/>
+    <h3>Куртка кожаная весенняя</h3>
+    <h6>5500руб</h6>
+</a>
+    </div>
+
+
+    <div style="float: left; width:33%; height:550px;">
+    <a href="/futbolka_print_tsevet_mnogo">
+    <img style="width:600px; height:450px;   " src="{{ url_for('static', filename='images/fotbal.jpg') }}" alt=""/>
+        <h3>Футболка белая с принтом</h3>
+        <h6>3500руб</h6>
+        </a>
+        </div>
+
+
+    <div style="width:33%; height:650px;float: left;">
+        <a href="/waterlazka_tel">
+
+    <img style="width:600px; height:450px;   " src="{{ url_for('static', filename='images/watelaz1.jpg') }}" alt=""/>
+            <h3>Шерстяная водолазка</h3>
+            <h6>3000руб</h6>
+    </a>
+        </div>
+
+</div>
+
+
+
+
+<a href="/all">
+<div class="container_slider_css" style="margin-top:-50px; text-align:center; margin-left:100px; ">
+
+  <img class="photo_slider_css"  src="{{ url_for('static', filename='images/aw22-digital-content-guards-parade-050_8ed4qLnn.jpg') }}" alt=""/>
+
+
+
+
+  <img class="photo_slider_css" src="{{ url_for('static', filename='images/image-995251d5-47fd-4c98-a3be-bac62a281a94-_11_800x_8ed4qLnn.jpg') }}" alt=""/>
+
+
+
+  <img class="photo_slider_css" src="{{ url_for('static', filename='images/fotbal2.jpg') }}" alt=""/>
+
+
+
+  <img class="photo_slider_css" src="{{ url_for('static', filename='images/waterlazki2.jpg') }}" alt=""/>
+
+
+</div>
+</a>
+
+
+{% endblock%}
